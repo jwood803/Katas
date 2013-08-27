@@ -1,0 +1,1 @@
+Poker Hands code kata from http://www.codingdojo.org/cgi-bin/wiki.pl?KataPokerHands
