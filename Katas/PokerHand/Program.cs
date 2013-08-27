@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace PokerHand
+﻿namespace PokerHand
 {
+    using System.Collections.Generic;
+
     class Program
     {
         static void Main(string[] args)

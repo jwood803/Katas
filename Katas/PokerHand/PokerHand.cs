@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-
-namespace PokerHand
+﻿namespace PokerHand
 {
+    using System;
+    using System.Collections.Generic;
+
     public class PokerHand
     {
         private List<string> _player1Hand;
@@ -16,14 +17,38 @@ namespace PokerHand
         public string DisplayWinner()
         {
             var pokerLogic = new PokerLogic();
+            var player1HighHandCount = 0;
+            var player2HighHandCount = 0;
+            var winner = string.Empty;
 
             for (int i = 0; i <= _player1Hand.Count; i++)
             {
-                // Check each players hands. See which one has the highest hand.
-                pokerLogic.CheckHand(_player1Hand[i], _player2Hand[i]);
+                var highHandWinner = pokerLogic.CheckHand(_player1Hand[i], _player2Hand[i]);
+
+                if (highHandWinner.Equals("player1"))
+                {
+                    player1HighHandCount += 1;
+                }
+                else
+                {
+                    player2HighHandCount += 1;
+                }
             }
 
-            return string.Empty;
+            if(player1HighHandCount > player2HighHandCount)
+            {
+                winner = "player1";
+            }
+            else if (player1HighHandCount < player2HighHandCount)
+            {
+                winner = "player2";
+            }
+            else
+            {
+                winner = "tie";
+            }
+
+            return winner;
         }
     }
 }
