@@ -21,6 +21,9 @@
             var player2HighHandCount = 0;
             var winner = string.Empty;
 
+            // TODO: Parse each card value, add up the cards and the winner is the higher sum.
+            // Also have to check the suits, i.e. flush.
+
             for (int i = 0; i <= _player1Hand.Count; i++)
             {
                 var highHandWinner = pokerLogic.CheckHand(_player1Hand[i], _player2Hand[i]);
