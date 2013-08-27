@@ -17,11 +17,13 @@ namespace PokerHand
         {
             var pokerLogic = new PokerLogic();
 
-            for (int i = 0; i <= player1Hand.Count; i++)
+            for (int i = 0; i <= _player1Hand.Count; i++)
             {
                 // Check each players hands. See which one has the highest hand.
-                pokerLogic.CheckHand(player1Hand[i], player2Hand[i]);
+                pokerLogic.CheckHand(_player1Hand[i], _player2Hand[i]);
             }
+
+            return string.Empty;
         }
     }
 }
