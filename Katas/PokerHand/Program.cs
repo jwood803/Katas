@@ -6,12 +6,10 @@
     {
         static void Main(string[] args)
         {
-            var player1Hand = new List<string>();
-            var player2Hand = new List<string>();
+            var game = new PokerGame("player1", "player2");
 
-            var hand = new PokerHand(player1Hand, player2Hand);
-
-            hand.DisplayWinner();
+            //var hand = new PokerHand(player1Hand, player2Hand);
+            //hand.DisplayWinner();
         }
     }
 }

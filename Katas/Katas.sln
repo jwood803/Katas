@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.20623.1 VSUPREVIEW
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokerHand", "PokerHand\PokerHand.csproj", "{2EC46326-777F-47A8-9AC7-5AB270FF39DC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PokerHandKata", "PokerHandKata", "{12705B3A-54CF-4604-BF2D-9B2F7A38A1B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokerHand.Tests", "PokerHand\PokerHand.Tests\PokerHand.Tests.csproj", "{5431B13D-772C-45F5-A189-F7692F5A6717}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,16 @@ Global
 		{2EC46326-777F-47A8-9AC7-5AB270FF39DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EC46326-777F-47A8-9AC7-5AB270FF39DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EC46326-777F-47A8-9AC7-5AB270FF39DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5431B13D-772C-45F5-A189-F7692F5A6717}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5431B13D-772C-45F5-A189-F7692F5A6717}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5431B13D-772C-45F5-A189-F7692F5A6717}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5431B13D-772C-45F5-A189-F7692F5A6717}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2EC46326-777F-47A8-9AC7-5AB270FF39DC} = {12705B3A-54CF-4604-BF2D-9B2F7A38A1B7}
+		{5431B13D-772C-45F5-A189-F7692F5A6717} = {12705B3A-54CF-4604-BF2D-9B2F7A38A1B7}
 	EndGlobalSection
 EndGlobal

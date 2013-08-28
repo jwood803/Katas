@@ -5,53 +5,45 @@
 
     public class PokerHand
     {
-        private List<string> _player1Hand;
-        private List<string> _player2Hand;
-
         public PokerHand(List<string> player1Hand, List<string> player2Hand)
         {
-            this._player1Hand = player1Hand;
-            this._player2Hand = player2Hand;
         }
 
-        public string DisplayWinner()
-        {
-            var pokerLogic = new PokerLogic();
-            var player1HighHandCount = 0;
-            var player2HighHandCount = 0;
-            var winner = string.Empty;
+        //public string DisplayWinner()
+        //{
+            //var pokerLogic = new PokerLogic();
+            //var player1HighHandCount = 0;
+            //var player2HighHandCount = 0;
+            //var winner = string.Empty;
 
-            // TODO: Parse each card value, add up the cards and the winner is the higher sum.
-            // Also have to check the suits, i.e. flush.
+            //for (int i = 0; i <= _player1Hand.Count; i++)
+            //{
+            //    var highHandWinner = pokerLogic.CheckHand(_player1Hand[i], _player2Hand[i]);
 
-            for (int i = 0; i <= _player1Hand.Count; i++)
-            {
-                var highHandWinner = pokerLogic.CheckHand(_player1Hand[i], _player2Hand[i]);
+            //    if (highHandWinner.Equals("player1"))
+            //    {
+            //        player1HighHandCount += 1;
+            //    }
+            //    else
+            //    {
+            //        player2HighHandCount += 1;
+            //    }
+            //}
 
-                if (highHandWinner.Equals("player1"))
-                {
-                    player1HighHandCount += 1;
-                }
-                else
-                {
-                    player2HighHandCount += 1;
-                }
-            }
+            //if(player1HighHandCount > player2HighHandCount)
+            //{
+            //    winner = "player1";
+            //}
+            //else if (player1HighHandCount < player2HighHandCount)
+            //{
+            //    winner = "player2";
+            //}
+            //else
+            //{
+            //    winner = "tie";
+            //}
 
-            if(player1HighHandCount > player2HighHandCount)
-            {
-                winner = "player1";
-            }
-            else if (player1HighHandCount < player2HighHandCount)
-            {
-                winner = "player2";
-            }
-            else
-            {
-                winner = "tie";
-            }
-
-            return winner;
-        }
+            //return winner;
+        //}
     }
 }
