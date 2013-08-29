@@ -1,8 +1,11 @@
-﻿namespace PokerHand
+﻿using System.Diagnostics;
+
+namespace PokerHand
 {
     using System;
     using System.Collections.Generic;
 
+    [DebuggerDisplay("{this.DisplayHand(), nq}")]
     public class PokerPlayer
     {
         public string Name { get; set; }
@@ -18,11 +21,11 @@
         {
             var random = new Random();
             var cards = new List<Card>();
-            var card = new Card();
 
             for (int i = 0; i < 5; i++)
             {
-                // How to start at 2?
+                var card = new Card();
+
                 var randomCardValue = random.Next(2, 14);
                 var randomSuit = random.Next(1, 4);
 
@@ -33,6 +36,11 @@
             }
 
             return cards;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Player {0} has hand {1}", this.Name, this.DisplayHand());
         }
     }
 }

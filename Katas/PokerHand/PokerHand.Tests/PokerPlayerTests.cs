@@ -8,7 +8,9 @@
         [Test]
         public void Tests()
         {
+            var player = new PokerPlayer("name");
 
+            var hand = player.GenerateNewHand();
         }
     }
 }
