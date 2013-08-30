@@ -46,7 +46,6 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="PokerGame.cs" />
     <Compile Include="PokerHand.cs" />
-    <Compile Include="PokerLogic.cs" />
     <Compile Include="PokerPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

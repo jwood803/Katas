@@ -1,9 +1,8 @@
-﻿using System.Diagnostics;
-
-namespace PokerHand
+﻿namespace PokerHand
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
 
     [DebuggerDisplay("{this.DisplayHand(), nq}")]
     public class PokerPlayer
@@ -32,7 +31,11 @@ namespace PokerHand
                 card.Value = (CardValue)randomCardValue;
                 card.Suit = (Suit)randomSuit;
 
-                cards.Add(card);
+                // Can't have the same card (same value and suit) twice
+                if (!cards.Contains(card))
+                {
+                    cards.Add(card);
+                }
             }
 
             return cards;

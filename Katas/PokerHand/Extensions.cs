@@ -14,43 +14,43 @@
             {
                 switch (card.Value)
                 {
-                    case CardValue.TWO:
+                    case CardValue.Two:
                         stringBuilder.Append("2");
                         break;
-                    case CardValue.THREE:
+                    case CardValue.Three:
                         stringBuilder.Append("3");
                         break;
-                    case CardValue.FOUR:
+                    case CardValue.Four:
                         stringBuilder.Append("4");
                         break;
-                    case CardValue.FIVE:
+                    case CardValue.Five:
                         stringBuilder.Append("5");
                         break;
-                    case CardValue.SIX:
+                    case CardValue.Six:
                         stringBuilder.Append("6");
                         break;
-                    case CardValue.SEVEN:
+                    case CardValue.Seven:
                         stringBuilder.Append("7");
                         break;
-                    case CardValue.EIGHT:
+                    case CardValue.Eight:
                         stringBuilder.Append("8");
                         break;
-                    case CardValue.NINE:
+                    case CardValue.Nine:
                         stringBuilder.Append("9");
                         break;
-                    case CardValue.TEN:
+                    case CardValue.Ten:
                         stringBuilder.Append("T");
                         break;
-                    case CardValue.JACK:
+                    case CardValue.Jack:
                         stringBuilder.Append("J");
                         break;
-                    case CardValue.QUEEN:
+                    case CardValue.Queen:
                         stringBuilder.Append("Q");
                         break;
-                    case CardValue.KING:
+                    case CardValue.King:
                         stringBuilder.Append("K");
                         break;
-                    case CardValue.ACE:
+                    case CardValue.Ace:
                         stringBuilder.Append("A");
                         break;
                     default:
@@ -60,16 +60,16 @@
 
                 switch (card.Suit)
                 {
-                    case Suit.CLUBS:
+                    case Suit.Clubs:
                         stringBuilder.Append("C");
                         break;
-                    case Suit.DIAMONDS:
+                    case Suit.Diamonds:
                         stringBuilder.Append("D");
                         break;
-                    case Suit.HEARTS:
+                    case Suit.Hearts:
                         stringBuilder.Append("H");
                         break;
-                    case Suit.SPADES:
+                    case Suit.Spades:
                         stringBuilder.Append("S");
                         break;
                     default:
