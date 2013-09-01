@@ -1,4 +1,6 @@
-﻿namespace PokerHand
+﻿using System.Linq;
+
+namespace PokerHand
 {
     using System;
     using System.Collections.Generic;
@@ -56,12 +58,16 @@
             return matchCount == cards.Count;
         }
 
-        private bool HasFlush(List<Card> cards)
+        internal bool HasFlush(List<Card> cards)
         {
             // TODO: Possible to get a distinct of the suits and if only one remains
+            var suits = new List<Suit>();
 
+            cards.ForEach(card => suits.Add(card.Suit));
 
-            return true;
+            var distinctSuits = suits.Distinct();
+
+            return distinctSuits.Count() == 1;
         }
 
         internal void SortHand(List<Card> hand)
