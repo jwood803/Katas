@@ -60,7 +60,6 @@ namespace PokerHand
 
         internal bool HasFlush(List<Card> cards)
         {
-            // TODO: Possible to get a distinct of the suits and if only one remains
             var suits = new List<Suit>();
 
             cards.ForEach(card => suits.Add(card.Suit));
@@ -68,6 +67,18 @@ namespace PokerHand
             var distinctSuits = suits.Distinct();
 
             return distinctSuits.Count() == 1;
+        }
+
+        internal bool HasAtLeastTwoOfAKind(List<Card> cards)
+        {
+            var cardValues = new List<CardValue>();
+
+            cards.ForEach(card => cardValues.Add(card.Value));
+
+            var distinctValues = cardValues.Distinct();
+            
+            // TODO: Can we use a method that passes in a predicate to test each of the other hands?
+            return distinctValues.Count() < 5;
         }
 
         internal void SortHand(List<Card> hand)

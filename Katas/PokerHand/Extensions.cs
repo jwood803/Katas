@@ -82,13 +82,5 @@
 
             return stringBuilder.ToString();
         }
-
-        public static void ForAll<T>(this IEnumerable<T> sequence, Action<T> action)
-        {
-            foreach (var item in sequence)
-            {
-                action(item);
-            }
-        }
     }
 }
