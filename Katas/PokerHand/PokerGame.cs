@@ -81,6 +81,17 @@ namespace PokerHand
             return distinctValues.Count() < 5;
         }
 
+        internal bool CheckForValueMatches(List<Card> cards, Predicate<IEnumerable<CardValue>> predicate)
+        {
+            var cardValues = new List<CardValue>();
+
+            cards.ForEach(card => cardValues.Add(card.Value));
+
+            var distinctValues = cardValues.Distinct();
+
+            return predicate(distinctValues);
+        }
+
         internal void SortHand(List<Card> hand)
         {
             hand.Sort((card, nextCard) => nextCard.Value.CompareTo(card.Value));

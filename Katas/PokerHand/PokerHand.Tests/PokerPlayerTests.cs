@@ -1,4 +1,6 @@
-﻿namespace PokerHand.Tests
+﻿using System.Linq;
+
+namespace PokerHand.Tests
 {
     using System.Collections.Generic;
     using NUnit.Framework;
@@ -86,6 +88,57 @@
                 new Card { Value = CardValue.Six, Suit = Suit.Spades },
                 new Card { Value = CardValue.Three, Suit = Suit.Diamonds }
             });
+
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void TwoOfAKindTest()
+        {
+            var game = new PokerGame("name1", "name2");
+            var list = new List<Card>
+            {
+                new Card {Value = CardValue.Four, Suit = Suit.Diamonds},
+                new Card {Value = CardValue.Five, Suit = Suit.Clubs},
+                new Card {Value = CardValue.Three, Suit = Suit.Diamonds},
+                new Card {Value = CardValue.Six, Suit = Suit.Spades},
+                new Card {Value = CardValue.Three, Suit = Suit.Diamonds}
+            };
+
+            var enumerable = new List<CardValue>
+            {
+                CardValue.Three,
+                CardValue.Five,
+                CardValue.Four,
+                CardValue.Nine
+            };
+
+            var result = game.CheckForValueMatches(list, distinctValues => enumerable.Count() == 4);
+
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void ThreeOfAKindTest()
+        {
+            var game = new PokerGame("name1", "name2");
+            var list = new List<Card>
+            {
+                new Card {Value = CardValue.Four, Suit = Suit.Diamonds},
+                new Card {Value = CardValue.Three, Suit = Suit.Clubs},
+                new Card {Value = CardValue.Three, Suit = Suit.Diamonds},
+                new Card {Value = CardValue.Six, Suit = Suit.Spades},
+                new Card {Value = CardValue.Three, Suit = Suit.Diamonds}
+            };
+
+            var enumerable = new List<CardValue>
+            {
+                CardValue.Three,
+                CardValue.Five,
+                CardValue.Six,
+            };
+
+            var result = game.CheckForValueMatches(list, distinctValues => enumerable.Count() == 3);
 
             Assert.IsTrue(result);
         }
