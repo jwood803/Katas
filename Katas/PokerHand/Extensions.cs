@@ -1,4 +1,6 @@
-﻿namespace PokerHand
+﻿using System.Linq;
+
+namespace PokerHand
 {
     using System;
     using System.Collections.Generic;
@@ -81,6 +83,49 @@
             });
 
             return stringBuilder.ToString();
+        }
+
+        public static bool CheckHandForValueMatches(this List<Card> hand, int cardCountToCheck)
+        {
+            var cardValues = new List<CardValue>();
+
+            hand.ForEach(c => cardValues.Add(c.Value));
+
+            return cardValues.Distinct().Count() == cardCountToCheck;
+        }
+
+        public static bool CheckHandForFlush(this List<Card> hand)
+        {
+            var suits = new List<Suit>();
+
+            hand.ForEach(card => suits.Add(card.Suit));
+
+            return suits.Distinct().Count() == 1;
+        }
+
+        public static bool CheckHandForStraight(this List<Card> hand)
+        {
+            hand.SortValues();
+
+            var initialCardValue = hand[0].Value;
+            var matchCount = 0;
+
+            hand.ForEach(card =>
+            {
+                if (initialCardValue == card.Value)
+                {
+                    matchCount++;
+                }
+
+                initialCardValue--;
+            });
+
+            return matchCount == hand.Count;
+        }
+
+        public static void SortValues(this List<Card> hand)
+        {
+            hand.Sort((card, nextCard) => nextCard.Value.CompareTo(card.Value));
         }
     }
 }

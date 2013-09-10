@@ -21,64 +21,57 @@ namespace PokerHand.Tests
         [Test]
         public void GameTest()
         {
-            var game = new PokerGame("name1", "name2");
+            //var game = new PokerGame("name1", "name2");
         }
 
         [Test]
         public void StraightTest()
         {
-            var game = new PokerGame("name1", "name2");
-
-            var result = game.HasStraight(new List<Card>
+            var list = new List<Card>
             {
                 new Card { Value = CardValue.Four, Suit = Suit.Diamonds },
                 new Card { Value = CardValue.Five, Suit = Suit.Hearts },
                 new Card { Value = CardValue.Seven, Suit = Suit.Spades },
                 new Card { Value = CardValue.Six, Suit = Suit.Clubs },
                 new Card { Value = CardValue.Three, Suit = Suit.Diamonds }
-            });
+            };
 
-            Assert.IsTrue(result);
+            Assert.IsTrue(list.CheckHandForStraight());
         }
 
         [Test]
         public void FlushTestReturnsTrue()
         {
-            var game = new PokerGame("name1", "name2");
-
-            var result = game.HasFlush(new List<Card>
+            var list = new List<Card>
             {
                 new Card { Value = CardValue.Four, Suit = Suit.Diamonds },
                 new Card { Value = CardValue.Five, Suit = Suit.Diamonds },
                 new Card { Value = CardValue.Seven, Suit = Suit.Diamonds },
                 new Card { Value = CardValue.Six, Suit = Suit.Diamonds },
                 new Card { Value = CardValue.Three, Suit = Suit.Diamonds }
-            });
+            };
 
-            Assert.IsTrue(result);
+            Assert.IsTrue(list.CheckHandForFlush());
         }
 
         [Test]
         public void FlushTestReturnsFalse()
         {
-            var game = new PokerGame("name1", "name2");
-
-            var result = game.HasFlush(new List<Card>
+            var list = new List<Card>
             {
                 new Card { Value = CardValue.Four, Suit = Suit.Diamonds },
                 new Card { Value = CardValue.Five, Suit = Suit.Clubs },
                 new Card { Value = CardValue.Seven, Suit = Suit.Diamonds },
                 new Card { Value = CardValue.Six, Suit = Suit.Spades },
                 new Card { Value = CardValue.Three, Suit = Suit.Diamonds }
-            });
+            };
 
-            Assert.IsFalse(result);
+            Assert.IsFalse(list.CheckHandForFlush());
         }
 
         [Test]
         public void TwoOfAKindTest()
         {
-            var game = new PokerGame("name1", "name2");
             var list = new List<Card>
             {
                 new Card {Value = CardValue.Four, Suit = Suit.Diamonds},
@@ -88,23 +81,12 @@ namespace PokerHand.Tests
                 new Card {Value = CardValue.Three, Suit = Suit.Diamonds}
             };
 
-            var enumerable = new List<CardValue>
-            {
-                CardValue.Three,
-                CardValue.Five,
-                CardValue.Four,
-                CardValue.Nine
-            };
-
-            var result = game.CheckForValueMatches(list, distinctValues => enumerable.Count() == 4);
-
-            Assert.IsTrue(result);
+            Assert.IsTrue(list.CheckHandForValueMatches(4));
         }
 
         [Test]
         public void ThreeOfAKindTest()
         {
-            var game = new PokerGame("name1", "name2");
             var list = new List<Card>
             {
                 new Card {Value = CardValue.Four, Suit = Suit.Diamonds},
@@ -114,16 +96,7 @@ namespace PokerHand.Tests
                 new Card {Value = CardValue.Three, Suit = Suit.Diamonds}
             };
 
-            var enumerable = new List<CardValue>
-            {
-                CardValue.Three,
-                CardValue.Five,
-                CardValue.Six,
-            };
-
-            var result = game.CheckForValueMatches(list, distinctValues => enumerable.Count() == 3);
-
-            Assert.IsTrue(result);
+            Assert.IsTrue(list.CheckHandForValueMatches(3));
         }
     }
 }
