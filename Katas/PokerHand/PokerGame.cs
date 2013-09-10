@@ -7,32 +7,29 @@ namespace PokerHand
 
     public class PokerGame
     {
+        public PokerPlayer Player1 { get; set; }
+        public PokerPlayer Player2 { get; set; }
+        
         public PokerGame(string p1Name, string p2Name)
         {
-            var player1 = new PokerPlayer(p1Name);
-            var player2 = new PokerPlayer(p2Name);
+            this.Player1 = new PokerPlayer(p1Name);
+            this.Player2 = new PokerPlayer(p2Name);
 
-            this.SortHand(player1.Cards);
-            this.SortHand(player2.Cards);
+            this.SortHand(this.Player1.Cards);
+            this.SortHand(this.Player2.Cards);
 
             //RankHands(player1, player2);
         }
 
         internal void RankHands(PokerPlayer player1, PokerPlayer player2)
         {
-            // TODO: Check suit and card combinations
-            //if (HasFlush(player1.Cards))
-            //{
-                
-            //}
-            //else if(HasFlush(player2.Cards))
-            //{
-                
-            //}
+            // TODO: Add checks in order of highest to lowest.
 
             HasStraight(player1.Cards);
 
-            // Check high card
+            // CheckForValueMatches(player1.Cards, distinctValues => enumerable.Count() == 4);
+
+            // TODO: Extract this out to a method.
             Console.WriteLine(player1.Cards[0].Value > player2.Cards[0].Value
                 ? string.Format("player1 won with a high hand of {0} vs. {1}", player1.Cards[0], player2.Cards[0])
                 : string.Format("player2 won with a high hand of {0} vs. {1}", player2.Cards[0], player1.Cards[0]));
@@ -67,18 +64,6 @@ namespace PokerHand
             var distinctSuits = suits.Distinct();
 
             return distinctSuits.Count() == 1;
-        }
-
-        internal bool HasAtLeastTwoOfAKind(List<Card> cards)
-        {
-            var cardValues = new List<CardValue>();
-
-            cards.ForEach(card => cardValues.Add(card.Value));
-
-            var distinctValues = cardValues.Distinct();
-            
-            // TODO: Can we use a method that passes in a predicate to test each of the other hands?
-            return distinctValues.Count() < 5;
         }
 
         internal bool CheckForValueMatches(List<Card> cards, Predicate<IEnumerable<CardValue>> predicate)

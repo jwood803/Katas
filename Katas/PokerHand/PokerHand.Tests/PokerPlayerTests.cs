@@ -76,23 +76,6 @@ namespace PokerHand.Tests
         }
 
         [Test]
-        public void HasAtLeastTwoOfAKindTest()
-        {
-            var game = new PokerGame("name1", "name2");
-
-            var result = game.HasAtLeastTwoOfAKind(new List<Card>
-            {
-                new Card { Value = CardValue.Four, Suit = Suit.Diamonds },
-                new Card { Value = CardValue.Five, Suit = Suit.Clubs },
-                new Card { Value = CardValue.Three, Suit = Suit.Diamonds },
-                new Card { Value = CardValue.Six, Suit = Suit.Spades },
-                new Card { Value = CardValue.Three, Suit = Suit.Diamonds }
-            });
-
-            Assert.IsTrue(result);
-        }
-
-        [Test]
         public void TwoOfAKindTest()
         {
             var game = new PokerGame("name1", "name2");
