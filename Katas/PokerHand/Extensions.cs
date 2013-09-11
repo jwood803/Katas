@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace PokerHand
 {
@@ -92,6 +93,32 @@ namespace PokerHand
             hand.ForEach(c => cardValues.Add(c.Value));
 
             return cardValues.Distinct().Count() == cardCountToCheck;
+        }
+
+        public static bool CheckHandForFullHouse(this List<Card> hand)
+        {
+            hand.SortValues();
+
+            var initialCardValue = hand[0].Value;
+            int matchCount = 0;
+
+            hand.ForEach(card =>
+            {
+                if (initialCardValue == card.Value)
+                {
+                    matchCount++;
+                }
+                else
+                {
+                    if (matchCount == 3)
+                    {
+                        initialCardValue = card.Value;
+                    }
+                }
+                
+            });
+
+            return matchCount == 4;
         }
 
         public static bool CheckHandForFlush(this List<Card> hand)

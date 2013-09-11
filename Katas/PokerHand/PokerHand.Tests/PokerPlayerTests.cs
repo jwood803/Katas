@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace PokerHand.Tests
+﻿namespace PokerHand.Tests
 {
     using System.Collections.Generic;
     using NUnit.Framework;
@@ -98,5 +96,51 @@ namespace PokerHand.Tests
 
             Assert.IsTrue(list.CheckHandForValueMatches(3));
         }
+
+        [Test]
+        public void FourOfAKindTest()
+        {
+            var list = new List<Card>
+            {
+                new Card {Value = CardValue.Four, Suit = Suit.Diamonds},
+                new Card {Value = CardValue.Three, Suit = Suit.Clubs},
+                new Card {Value = CardValue.Three, Suit = Suit.Hearts},
+                new Card {Value = CardValue.Three, Suit = Suit.Spades},
+                new Card {Value = CardValue.Three, Suit = Suit.Diamonds}
+            };
+
+            Assert.IsTrue(list.CheckHandForValueMatches(2));
+        }
+
+        [Test]
+        public void FullHouseTest()
+        {
+            var list = new List<Card>
+            {
+                new Card { Value = CardValue.Five, Suit = Suit.Hearts },
+                new Card { Value = CardValue.Five, Suit = Suit.Spades },
+                new Card { Value = CardValue.Ten, Suit = Suit.Hearts },
+                new Card { Value = CardValue.Ten, Suit = Suit.Diamonds },
+                new Card { Value = CardValue.Ten, Suit = Suit.Clubs }
+            };
+
+            Assert.IsTrue(list.CheckHandForFullHouse());
+        }
+
+        [Test]
+        public void FullHouseTest2()
+        {
+            var list = new List<Card>
+            {
+                new Card { Value = CardValue.Five, Suit = Suit.Hearts },
+                new Card { Value = CardValue.Five, Suit = Suit.Spades },
+                new Card { Value = CardValue.Five, Suit = Suit.Hearts },
+                new Card { Value = CardValue.Ten, Suit = Suit.Diamonds },
+                new Card { Value = CardValue.Ten, Suit = Suit.Clubs }
+            };
+
+            Assert.IsTrue(list.CheckHandForFullHouse());
+        }
+
     }
 }
