@@ -18,21 +18,35 @@ namespace PokerHand
             this.Player1.Cards.Sort();
             this.Player2.Cards.Sort();
 
-            //RankHands(player1, player2);
+            DisplayWinner();
         }
 
-        internal void RankHands(PokerPlayer player1, PokerPlayer player2)
+        private void DisplayWinner()
         {
-            // TODO: Add checks in order of highest to lowest.
+            // Should be called in the PokerRank class
+            RankHands();
+        }
 
-            player1.Cards.CheckHandForStraight();
+        internal void RankHands()
+        {
+            this.Player1.Cards.SortValues();
+            this.Player2.Cards.SortValues();
+
+            var pokerRank = new PokerRank(this.Player1, this.Player2);
+
+            // TODO: Add checks in order of highest to lowest. 
+
+            if (pokerRank.HasStraightWinner())
+            {
+
+            }
 
             // CheckForValueMatches(player1.Cards, distinctValues => enumerable.Count() == 4);
 
             // TODO: Extract this out to a method.
-            Console.WriteLine(player1.Cards[0].Value > player2.Cards[0].Value
-                ? string.Format("player1 won with a high hand of {0} vs. {1}", player1.Cards[0], player2.Cards[0])
-                : string.Format("player2 won with a high hand of {0} vs. {1}", player2.Cards[0], player1.Cards[0]));
+            Console.WriteLine(this.Player1.Cards[0].Value > this.Player2.Cards[0].Value
+                ? string.Format("player1 won with a high hand of {0} vs. {1}", this.Player1.Cards[0], this.Player2.Cards[0])
+                : string.Format("player2 won with a high hand of {0} vs. {1}", this.Player2.Cards[0], this.Player1.Cards[0]));
         }
     }
 }

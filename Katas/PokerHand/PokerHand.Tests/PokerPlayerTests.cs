@@ -1,12 +1,12 @@
 ﻿namespace PokerHand.Tests
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.Collections.Generic;
-    using NUnit.Framework;
 
-    [TestFixture]
+    [TestClass]
     public class PokerPlayerTests
     {
-        [Test]
+        [TestMethod]
         public void Tests()
         {
             var player = new PokerPlayer("name");
@@ -16,13 +16,13 @@
             Assert.IsTrue(hand.Count > 0);
         }
 
-        [Test]
+        [TestMethod]
         public void GameTest()
         {
             //var game = new PokerGame("name1", "name2");
         }
 
-        [Test]
+        [TestMethod]
         public void StraightTest()
         {
             var list = new List<Card>
@@ -39,7 +39,7 @@
             Assert.IsTrue(list.CheckHandForStraight());
         }
 
-        [Test]
+        [TestMethod]
         public void FlushTestReturnsTrue()
         {
             var list = new List<Card>
@@ -56,7 +56,7 @@
             Assert.IsTrue(list.CheckHandForFlush());
         }
 
-        [Test]
+        [TestMethod]
         public void FlushTestReturnsFalse()
         {
             var list = new List<Card>
@@ -73,7 +73,7 @@
             Assert.IsFalse(list.CheckHandForFlush());
         }
 
-        [Test]
+        [TestMethod]
         public void TwoOfAKindTest()
         {
             var list = new List<Card>
@@ -90,7 +90,7 @@
             Assert.IsTrue(list.CheckHandForValueMatches(4));
         }
 
-        [Test]
+        [TestMethod]
         public void ThreeOfAKindTest()
         {
             var list = new List<Card>
@@ -107,7 +107,7 @@
             Assert.IsTrue(list.CheckHandForValueMatches(3));
         }
 
-        [Test]
+        [TestMethod]
         public void FourOfAKindTest()
         {
             var list = new List<Card>
@@ -124,7 +124,7 @@
             Assert.IsTrue(list.CheckHandForValueMatches(2));
         }
 
-        [Test]
+        [TestMethod]
         public void FullHouseTest()
         {
             var list = new List<Card>
@@ -141,14 +141,14 @@
             Assert.IsTrue(list.CheckHandForFullHouse());
         }
 
-        [Test]
+        [TestMethod]
         public void FullHouseTest2()
         {
             var list = new List<Card>
             {
                 new Card { Value = CardValue.Five, Suit = Suit.Hearts },
                 new Card { Value = CardValue.Five, Suit = Suit.Spades },
-                new Card { Value = CardValue.Five, Suit = Suit.Hearts },
+                new Card { Value = CardValue.Five, Suit = Suit.Clubs },
                 new Card { Value = CardValue.Ten, Suit = Suit.Diamonds },
                 new Card { Value = CardValue.Ten, Suit = Suit.Clubs }
             };
@@ -156,6 +156,40 @@
             list.SortValues();
 
             Assert.IsTrue(list.CheckHandForFullHouse());
-        }        
+        }
+
+        [TestMethod]
+        public void FullHouseTest3()
+        {
+            var list = new List<Card>
+            {
+                new Card { Value = CardValue.Five, Suit = Suit.Hearts },
+                new Card { Value = CardValue.Nine, Suit = Suit.Spades },
+                new Card { Value = CardValue.Five, Suit = Suit.Hearts },
+                new Card { Value = CardValue.Ten, Suit = Suit.Diamonds },
+                new Card { Value = CardValue.Ten, Suit = Suit.Clubs }
+            };
+
+            list.SortValues();
+
+            Assert.IsFalse(list.CheckHandForFullHouse());
+        }
+
+        [TestMethod]
+        public void FullHouseTest4()
+        {
+            var list = new List<Card>
+            {
+                new Card { Value = CardValue.Five, Suit = Suit.Hearts },
+                new Card { Value = CardValue.Five, Suit = Suit.Spades },
+                new Card { Value = CardValue.Five, Suit = Suit.Clubs },
+                new Card { Value = CardValue.Five, Suit = Suit.Diamonds },
+                new Card { Value = CardValue.Ten, Suit = Suit.Clubs }
+            };
+
+            list.SortValues();
+
+            Assert.IsFalse(list.CheckHandForFullHouse());
+        }
     }
 }
