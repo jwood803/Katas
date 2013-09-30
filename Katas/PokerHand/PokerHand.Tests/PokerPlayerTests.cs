@@ -34,6 +34,8 @@
                 new Card { Value = CardValue.Three, Suit = Suit.Diamonds }
             };
 
+            list.SortValues();
+
             Assert.IsTrue(list.CheckHandForStraight());
         }
 
@@ -48,6 +50,8 @@
                 new Card { Value = CardValue.Six, Suit = Suit.Diamonds },
                 new Card { Value = CardValue.Three, Suit = Suit.Diamonds }
             };
+
+            list.SortValues();
 
             Assert.IsTrue(list.CheckHandForFlush());
         }
@@ -64,6 +68,8 @@
                 new Card { Value = CardValue.Three, Suit = Suit.Diamonds }
             };
 
+            list.SortValues();
+
             Assert.IsFalse(list.CheckHandForFlush());
         }
 
@@ -78,6 +84,8 @@
                 new Card {Value = CardValue.Six, Suit = Suit.Spades},
                 new Card {Value = CardValue.Three, Suit = Suit.Diamonds}
             };
+
+            list.SortValues();
 
             Assert.IsTrue(list.CheckHandForValueMatches(4));
         }
@@ -94,6 +102,8 @@
                 new Card {Value = CardValue.Three, Suit = Suit.Diamonds}
             };
 
+            list.SortValues();
+
             Assert.IsTrue(list.CheckHandForValueMatches(3));
         }
 
@@ -108,6 +118,8 @@
                 new Card {Value = CardValue.Three, Suit = Suit.Spades},
                 new Card {Value = CardValue.Three, Suit = Suit.Diamonds}
             };
+
+            list.SortValues();
 
             Assert.IsTrue(list.CheckHandForValueMatches(2));
         }
@@ -124,6 +136,8 @@
                 new Card { Value = CardValue.Ten, Suit = Suit.Clubs }
             };
 
+            list.SortValues();
+
             Assert.IsTrue(list.CheckHandForFullHouse());
         }
 
@@ -139,8 +153,9 @@
                 new Card { Value = CardValue.Ten, Suit = Suit.Clubs }
             };
 
-            Assert.IsTrue(list.CheckHandForFullHouse());
-        }
+            list.SortValues();
 
+            Assert.IsTrue(list.CheckHandForFullHouse());
+        }        
     }
 }

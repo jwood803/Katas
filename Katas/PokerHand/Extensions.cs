@@ -1,10 +1,7 @@
-﻿using System.Linq;
-using System.Text.RegularExpressions;
-
-namespace PokerHand
+﻿namespace PokerHand
 {
-    using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
 
     public static class Extensions
@@ -97,8 +94,6 @@ namespace PokerHand
 
         public static bool CheckHandForFullHouse(this List<Card> hand)
         {
-            hand.SortValues();
-
             var initialCardValue = hand[0].Value;
             int matchCount = 0;
 
@@ -110,7 +105,7 @@ namespace PokerHand
                 }
                 else
                 {
-                    if (matchCount == 3)
+                    if (matchCount == 3 || matchCount == 2)
                     {
                         initialCardValue = card.Value;
                     }
@@ -132,8 +127,6 @@ namespace PokerHand
 
         public static bool CheckHandForStraight(this List<Card> hand)
         {
-            hand.SortValues();
-
             var initialCardValue = hand[0].Value;
             var matchCount = 0;
 
