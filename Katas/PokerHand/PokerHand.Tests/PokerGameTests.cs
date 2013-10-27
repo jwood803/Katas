@@ -42,8 +42,6 @@ namespace PokerHand.Tests
                     new Card {Value = CardValue.Two, Suit = Suit.Clubs},
                     new Card {Value = CardValue.King, Suit = Suit.Diamonds}
                 };
-
-                game.RankHands(p1, p2);
             }
         }
     }

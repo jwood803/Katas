@@ -2,10 +2,6 @@
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.Collections.Generic;
-<<<<<<< HEAD
-=======
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
->>>>>>> Game update
 
     [TestClass]
     public class PokerPlayerTests
@@ -21,15 +17,6 @@
         }
 
         [TestMethod]
-<<<<<<< HEAD
-        public void GameTest()
-        {
-            //var game = new PokerGame("name1", "name2");
-        }
-
-        [TestMethod]
-=======
->>>>>>> Game update
         public void StraightTest()
         {
             var list = new List<Card>
